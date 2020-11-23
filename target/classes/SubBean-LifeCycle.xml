@@ -1,0 +1,23 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- 扫描bean -->
+    <context:component-scan base-package="com.cn.beanlife"/>
+
+    <!-- 实现了用户自定义初始化和销毁方法 -->
+    <bean id="subMySpringBean" class="com.cn.beanlife.SubMySpringBean" init-method="initMethod" destroy-method="destroyMethod">
+        <!-- 注入bean 属性名称 -->
+        <property name="color" value="color is beautiful" />
+    </bean>
+
+    <!--引入自定义的BeanPostProcessor-->
+    <bean class="com.cn.beanlife.MyBeanPostProcessor"/>
+
+    <bean id="a" class="com.cn.beanlife.A"/>
+
+    <bean id="b" class="com.cn.beanlife.B"/>
+
+</beans>
