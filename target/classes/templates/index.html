@@ -21,7 +21,7 @@
         var name = document.getElementById('name').value;
         //判断当前浏览器是否支持WebSocket
         if('WebSocket' in window){
-            websocket = new WebSocket("ws://localhost:8090/websocket/"+name+"");
+            websocket = new WebSocket("ws://localhost:8009/dg-promotion/websocket/"+name+"");
         }
         else{
             alert('Not support websocket')
