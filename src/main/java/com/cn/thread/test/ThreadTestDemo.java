@@ -42,17 +42,16 @@ public class ThreadTestDemo {
     }
 
     @Test
-    public void testFour() {
-        Callable callable = new MyThreadFour();
-        FutureTask<String> futureTask = new FutureTask<>(callable);
-        new Thread(futureTask).start();
-        try {
-            System.out.println(futureTask.get());
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        }
+    public void testFour() throws ExecutionException, InterruptedException {
+        Callable callable = new MyCallable(100);
+        FutureTask<Integer> futureTask = new FutureTask<>(callable);
+        Thread thread1 = new Thread(futureTask);
+        Thread thread2 = new Thread(futureTask);
+        Thread thread3 = new Thread(futureTask);
+        thread1.start();
+        thread2.start();
+        thread3.start();
+        System.out.println(futureTask.get());
     }
 
     class MyThreadOne extends Thread {
@@ -75,10 +74,30 @@ public class ThreadTestDemo {
         }
     }
 
-    class MyThreadFour implements Callable<String> {
+    @Test
+    public void testFive() throws ExecutionException, InterruptedException {
+        ExecutorService executorService = Executors.newFixedThreadPool(2);
+        Future<Integer> f1 = executorService.submit(new MyCallable(100));
+        Future<Integer> f2 = executorService.submit(new MyCallable(50));
+        System.out.println(f1.get());
+        System.out.println(f2.get());
+        executorService.shutdown();
+    }
+
+    class MyCallable implements Callable<Integer> {
+        private int num;
+
+        public MyCallable(int num) {
+            this.num = num;
+        }
+
         @Override
-        public String call() throws Exception {
-            return "hello";
+        public Integer call() throws Exception {
+            int sum = 0;
+            for (int i = 0; i < num; i++) {
+                sum += i;
+            }
+            return sum;
         }
     }
 }
