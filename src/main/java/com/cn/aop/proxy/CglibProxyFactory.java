@@ -17,9 +17,14 @@ public class CglibProxyFactory implements MethodInterceptor {
     }
 
     public Object getProxyObject(){
+        //1.实例化cglib代理增强器
         Enhancer enhancer = new Enhancer();
+        //2.在增强器上设置相应的属性值
+        //设置目标的类:通过目标类对象来生成代理子对象
         enhancer.setSuperclass(target.getClass());
+        //设置回调方法函数,参数：回调的对象（写增强方法的代码）
         enhancer.setCallback(this);
+        //通过增强器获得代理对象
         return enhancer.create();
     }
 
