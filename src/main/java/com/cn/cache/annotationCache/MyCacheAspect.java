@@ -22,7 +22,7 @@ import java.lang.reflect.Method;
 public class MyCacheAspect {
 
     //定义切点
-    @Pointcut(value = "@annotation(com.example.demo.cache.annotationCache.MyCache)")
+    @Pointcut(value = "@annotation(com.cn.cache.annotationCache.MyCache)")
     public void myCacheAspectCut(){
 
     }

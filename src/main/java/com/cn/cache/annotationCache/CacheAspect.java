@@ -38,7 +38,7 @@ public class CacheAspect {
      * @return
      * @throws Throwable
      */
-    @Around("@annotation(com.example.demo.cache.annotationCache.NeteaseEduCache)")
+    @Around("@annotation(com.cn.cache.annotationCache.NeteaseEduCache)")
     public Object doAnything(ProceedingJoinPoint joinPoint) throws Throwable {
         String key = null;
         //1.从方法的注解的值中获取key
