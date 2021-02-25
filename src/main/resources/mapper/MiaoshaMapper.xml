@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.threadAndLock.distributedLock.redisLock.MiaoshaMapper">
+
+
+  <update id="update" parameterType="java.lang.String">
+    update tb_miaosha set goods_nums = goods_nums - 1
+    where goods_code = #{goodsCode}
+    and goods_nums > 0
+  </update>
+
+  <select id="getGoodsNumByGoodsCode" parameterType="java.lang.String" resultType="java.lang.Integer">
+    select goods_nums from tb_miaosha where goods_code = #{goodsCode}
+  </select>
+
+  <insert id="add">
+    insert into tb_miaosha(goods_code,goods_nums) values(#{goodsCode},#{goodsNums});
+  </insert>
+</mapper>

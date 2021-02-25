@@ -1,10 +1,8 @@
 import com.cn.clazz.Person;
-import jdk.nashorn.internal.ir.CallNode;
 import org.junit.Test;
 import org.springframework.beans.BeanUtils;
 
 import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 /**

@@ -1,0 +1,5 @@
+在读写分离的时候会不会造成事务主从切换错误？
+不会，但这是因为在AOP设置动态织出的时候，都要清空DynamicDataSourceHolder的
+ThreadLocal,如此避免了数据库事务传播行为影响的主从切换错误。如果Select DB
+从库完成之后不清空ThreadLocal，那么ThreadLocal跟线程绑定就会传播到Transaction，
+造成事务操作从库异常。

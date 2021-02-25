@@ -1,0 +1,4 @@
+自定义缓存注解@NeteaseEduCache
+还可以自定义删除缓存的注解@NeteaseEduCacheDel
+还可以自定义更新缓存的注解@NeteaseEduCachePut
+

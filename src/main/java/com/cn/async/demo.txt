@@ -1,0 +1,1 @@
+spring原生的异步注解@Async使用,需要启动类中添加@EnableAsync注解

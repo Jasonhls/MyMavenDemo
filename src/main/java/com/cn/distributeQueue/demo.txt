@@ -1,0 +1,1 @@
+利用rabbitmq实现流量削峰，即使用了rabbitmq实现了分布式队列
