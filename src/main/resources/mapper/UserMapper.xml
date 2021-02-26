@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.mapper.UserMapper">
-  <resultMap id="BaseResultMap" type="com.example.demo.pojo.User">
+  <resultMap id="BaseResultMap" type="com.cn.pojo.User">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="username" jdbcType="VARCHAR" property="username" />
     <result column="password" jdbcType="VARCHAR" property="password" />
     <result column="enable" jdbcType="INTEGER" property="enable" />
   </resultMap>
 
-  <select id="selectUserByUserName" parameterType="java.lang.String" resultType="com.example.demo.pojo.User">
+  <select id="selectUserByUserName" parameterType="java.lang.String" resultType="com.cn.pojo.User">
     SELECT * FROM
     USER WHERE username = #{username}
   </select>
 
-  <insert id="saveUser" parameterType="com.example.demo.pojo.User">
+  <insert id="saveUser" parameterType="com.cn.pojo.User">
     INSERT INTO USER
     (username,
     password,
@@ -25,7 +25,7 @@
     )
   </insert>
 
-  <update id="updateUser" parameterType="com.example.demo.pojo.User">
+  <update id="updateUser" parameterType="com.cn.pojo.User">
     UPDATE USER
     set password = #{password}
     WHERE username = #{username}

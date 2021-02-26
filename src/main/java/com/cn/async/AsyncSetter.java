@@ -1,5 +1,6 @@
 package com.cn.async;
 
+import org.springframework.stereotype.Component;
 import org.springframework.util.StopWatch;
 
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ import java.util.function.Consumer;
 /**
  * Created by Jason on 2018/10/18.
  */
+@Component
 public class AsyncSetter<T> {
     List<Consumer<T>> consumers = new ArrayList<>();
 

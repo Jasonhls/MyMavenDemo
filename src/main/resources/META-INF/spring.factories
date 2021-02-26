@@ -1,4 +1,4 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.example.demo.exception.config.ExceptionConfiguration
+  com.cn.exception.config.ExceptionConfiguration
 org.springframework.boot.SpringApplicationRunListener=\
-  com.example.demo.exception.listener.InitConfigApplicationRunListener
+  com.cn.exception.listener.InitConfigApplicationRunListener

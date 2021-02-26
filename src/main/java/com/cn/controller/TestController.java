@@ -1,12 +1,11 @@
 package com.cn.controller;
 
+import com.cn.aop.Rsa;
+import com.cn.service.HelloService;
 import com.cn.threadAndLock.threadPool.test.TestThreadPoolManager;
 import com.cn.websocket.MyWebSocket;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.util.Queue;
@@ -50,5 +49,15 @@ public class TestController {
         System.out.println("关闭了线程服务，还有未出来的信息条数：" + q.size());
 
         return "Test ThreadPoolExecutor end";
+    }
+
+    @Autowired
+    private HelloService helloService;
+
+    @PostMapping(value = "/test")
+    @Rsa
+    public String t(String data) {
+        System.out.println(data);
+        return helloService.sayHello(data);
     }
 }
