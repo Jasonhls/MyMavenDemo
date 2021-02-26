@@ -1,2 +1,15 @@
-模板模式：封装了一个算法步骤，并允许子类为一个或多个步骤方法提供实现
-模板模式可以使子类在不改变算法结构的情况下，重新定义算法中的某些步骤。
+1）模板方法模式，又叫模板模式，在一个抽象类公开定义了执行它的方法的模板。
+它的子类可以按需要重写方法实现，但调用将以抽象类中定义的方式执行。
+2）简单来说，模板方法模式定义了一个操作中的算法的骨架，而将一些步骤延迟到子类中，
+使得子类可以不改变一个算法的结构，就可以重新定义该算法的某些特定步骤。
+3）这种类型的设计模式属于行为型模式。
+
+模板模式中的钩子方法：
+1）在模板方法模式的父类中，我么可以定义一个方法，它默认不做任何事，子类可以视情况要不要覆盖它，该方法称为"钩子"。
+2）还是用上面做豆浆的例子来讲解，比如，我们希望制作纯豆浆，不添加任何的配料，请使用钩子方法对前面的模板方法进行改造。
+
+
+在Spring中，AbstractApplicationContext的refresh()方法就是模板方法中，
+refresh()方法中的obtainFreshBeanFactory()方法里面包含了两个抽象方法，refreshBeanFactory()和getBeanFactory()，都需要子类去实现的，
+而GenericApplicationContext和AbstractRefreshableApplicationContext都是AbstractApplicationContext的子类
+refresh()方法中的postProcessBeanFactory(beanFactory)和onRefresh()方法都是钩子方法
