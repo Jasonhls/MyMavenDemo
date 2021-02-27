@@ -1,5 +1,7 @@
 package com.cn.designMode.factoryMethod;
 
+import com.cn.designMode.factoryMethod.pizza.Pizza;
+
 public abstract class OrderPizza {
 
     public OrderPizza() {

@@ -1,4 +1,4 @@
-package com.cn.designMode.factoryMethod;
+package com.cn.designMode.abstractFactory.pizza;
 
 public abstract class Pizza {
     //名子

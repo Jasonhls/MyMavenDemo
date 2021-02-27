@@ -1,4 +1,4 @@
-package com.cn.designMode.factoryMethod;
+package com.cn.designMode.factoryMethod.pizza;
 
 public class LdCheesePizza extends Pizza{
     @Override

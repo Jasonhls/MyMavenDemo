@@ -1,6 +1,6 @@
-package com.cn.designMode.factoryMethod;
+package com.cn.designMode.abstractFactory.pizza;
 
-public class BjPepperPizza extends Pizza{
+public class BjPepperPizza extends Pizza {
     @Override
     public void prepare() {
         setName("北京胡椒披萨");
