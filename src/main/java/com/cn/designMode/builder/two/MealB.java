@@ -1,4 +1,4 @@
-package com.cn.designMode.builder;
+package com.cn.designMode.builder.two;
 
 public class MealB extends MealBuilder{
     @Override

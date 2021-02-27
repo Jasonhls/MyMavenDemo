@@ -1,4 +1,4 @@
-package com.cn.designMode.builder;
+package com.cn.designMode.builder.two;
 
 /**
  * 指挥者
