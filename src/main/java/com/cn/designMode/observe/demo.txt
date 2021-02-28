@@ -1,0 +1,9 @@
+观察者模式：对象之间多对一依赖的一种设计方案，被依赖的对象为Subject，依赖的对象为Observer，Subject通知Observer变化。
+
+
+观察者模式在jdk源码中应用：jdk中类Observable
+
+Observable的作用和地位相当于观察者模式中的Subject
+Observable是类，不是接口，类中已经实现了核心的方法，即管理Observer的方法，add.. delete.. notify..
+Observer的作用和地位相当于观察者模式中的Observer，有update方法
+Observable和Observer的使用方法和观察者模式例子一样，只是Observable是类，通过继承来实现观察者模式。
