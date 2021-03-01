@@ -1,4 +1,4 @@
-package com.cn.designMode.springObserver;
+package com.cn.designMode.observe.springObserver;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

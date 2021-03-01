@@ -1,14 +1,12 @@
-package com.cn.designMode.springObserver;
+package com.cn.designMode.observe.springObserver;
 
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
 
 @Component
-public class SmsListener implements ApplicationListener<OrderEvent> {
-
+public class WeixinListener implements ApplicationListener<OrderEvent> {
     @Override
     public void onApplicationEvent(OrderEvent orderEvent) {
-        System.out.println("发布短信了");
-
+        System.out.println("微信通知了");
     }
 }
