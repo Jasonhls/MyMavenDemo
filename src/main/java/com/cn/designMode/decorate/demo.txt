@@ -1,1 +1,26 @@
-装饰者模式：
+装饰者模式的定义
+1）装饰者模式：动态的将新功能附加到对象上，在对象功能扩展方面，它比继承更有弹性，装饰者模式也体现了开闭原则（ocp）
+2）这里提到的动态的将新功能附加到对象和ocp原则，在后面的应用实例上会以代码的形式提现。
+
+装饰者模式在JDK应用的源码分析
+Java的IO结构，FileInputStream就是一个装饰者
+说明：
+1.InputStream是抽象类，类似例子中的Drink
+2.FileInputStream是InputStream子类，类似例子中的LongBlack
+3.FilterInputStream是InputStream子类，类似Decorator装饰者
+4.DataInputStream 是FilterInputStream子类，具体的修饰者，类似Milk
+5.FilterInputStream 类有protected volatile InputStream in; 即含有被装饰者
+
+
+装饰者模式原理：
+1）装饰者模式就像打包一个快递
+    主体：比如：陶瓷、衣服，属于被装饰者
+    包装：比如：报纸填充、塑料泡沫、纸板、木板
+2）Component
+    主体：比如类似前面的Drink
+3）ConcreteComponent和Decorator
+    ConcreteComponent：具体的主体
+    比如前面的各个单品咖啡
+    Decorator：装饰者，比如各调料
+4）在Component和ConcreteComponent之间，如果ConcreteComponent类很多，
+还可以设计一个缓冲层，将共有的部分提取出来，抽象层是一个类。
