@@ -1,4 +1,4 @@
-package com.cn.config;
+package com.cn.propertySourceLoader;
 
 import org.junit.Test;
 import org.springframework.core.io.DefaultResourceLoader;
