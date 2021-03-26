@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @description: 添加自定义的HttpMessageConverter
+ * @description: 添加自定义的HttpMessageConverter，也可以不加这个，可以在属性上添加注解@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
  * @author: helisen
  * @create: 2021-03-26 17:44
  **/
