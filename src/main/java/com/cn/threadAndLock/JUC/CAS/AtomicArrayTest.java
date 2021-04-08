@@ -3,6 +3,7 @@ package com.cn.threadAndLock.JUC.CAS;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicIntegerArray;
 import java.util.function.*;
 
 /**
@@ -17,6 +18,14 @@ public class AtomicArrayTest {
                 (array) -> array.length,
                 (array, index) -> array[index]++,
                 array -> System.out.println(Arrays.toString(array))
+        );
+
+        //使用原子数组
+        demo(
+                () -> new AtomicIntegerArray(new int[10]),
+                (array) -> array.length(),
+                (array, index) -> array.getAndIncrement(index),
+                array -> System.out.println(array.toString())
         );
     }
 
@@ -40,10 +49,10 @@ public class AtomicArrayTest {
         ts.forEach(Thread::start);
         //等所有线程结束
         ts.forEach(t -> {
-            while(true) {
-                if(t.isInterrupted()) {
-                    break;
-                }
+            try {
+                t.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
         });
 
