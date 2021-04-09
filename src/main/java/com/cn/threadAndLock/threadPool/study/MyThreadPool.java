@@ -68,11 +68,7 @@ class ThreadPool {
                 workers.add(worker);
                 worker.start();
             }else {
-                //1) 死等
-                //2) 带超时等待
-                //3) 让调用者放弃任务的执行
-                //4) 让调用者抛出异常
-                //5) 让调用者自己执行任务
+                //尝试添加到任务队列中
                 taskQueue.tryPut(rejectPolicy, task);
             }
         }
@@ -244,6 +240,12 @@ class BlockingQueue<T> {
         lock.lock();
         try {
             if(queue.size() == capacity) {
+                //具体的拒绝策略交给调用者自己定义，不由线程池定义，可以有以下几种：
+                //1) 死等
+                //2) 带超时等待
+                //3) 让调用者放弃任务的执行
+                //4) 让调用者抛出异常
+                //5) 让调用者自己执行任务
                 rejectPolicy.reject(this, task);
             }else {
                 System.out.println(Thread.currentThread().getName() + " 加入任务队列中 " + task);
