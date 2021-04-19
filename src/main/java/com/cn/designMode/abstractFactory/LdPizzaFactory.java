@@ -1,7 +1,8 @@
-package com.cn.designMode.abstractFactory.pizza;
+package com.cn.designMode.abstractFactory;
 
-import com.cn.designMode.abstractFactory.AbstractFactory;
-import com.cn.designMode.abstractFactory.LdPepperPizza;
+import com.cn.designMode.abstractFactory.pizza.LdCheesePizza;
+import com.cn.designMode.abstractFactory.pizza.LdPepperPizza;
+import com.cn.designMode.abstractFactory.pizza.Pizza;
 
 public class LdPizzaFactory implements AbstractFactory {
 
