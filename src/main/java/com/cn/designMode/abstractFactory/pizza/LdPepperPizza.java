@@ -1,6 +1,4 @@
-package com.cn.designMode.abstractFactory;
-
-import com.cn.designMode.abstractFactory.pizza.Pizza;
+package com.cn.designMode.abstractFactory.pizza;
 
 public class LdPepperPizza extends Pizza {
     @Override
