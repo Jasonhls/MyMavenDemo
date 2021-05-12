@@ -1,4 +1,4 @@
-package com.cn.rabbitMQ;
+package com.cn.rabbitMQ.study2;
 
 import lombok.Data;
 

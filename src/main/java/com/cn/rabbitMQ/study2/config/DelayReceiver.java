@@ -1,6 +1,6 @@
-package com.cn.rabbitMQ.config;
+package com.cn.rabbitMQ.study2.config;
 
-import com.cn.rabbitMQ.RabbitmqOrder;
+import com.cn.rabbitMQ.study2.RabbitmqOrder;
 import com.rabbitmq.client.Channel;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.Message;

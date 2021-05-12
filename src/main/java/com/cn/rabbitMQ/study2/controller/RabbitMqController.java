@@ -1,8 +1,8 @@
-package com.cn.rabbitMQ.controller;
+package com.cn.rabbitMQ.study2.controller;
 
-import com.cn.rabbitMQ.RabbitmqOrder;
-import com.cn.rabbitMQ.config.DelaySender;
-import com.cn.rabbitMQ.config.Sender;
+import com.cn.rabbitMQ.study2.RabbitmqOrder;
+import com.cn.rabbitMQ.study2.config.DelaySender;
+import com.cn.rabbitMQ.study2.config.Sender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,6 +1,6 @@
-package com.cn.rabbitMQ.config;
+package com.cn.rabbitMQ.study2.config;
 
-import com.cn.rabbitMQ.RabbitmqUser;
+import com.cn.rabbitMQ.study2.RabbitmqUser;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
