@@ -1,11 +1,15 @@
 package com.cn.redis.controller;
 
 import com.cn.redis.pojo.StuDTO;
+import org.redisson.Redisson;
+import org.redisson.api.RLock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.concurrent.TimeUnit;
 
 @RestController
 @RequestMapping(value = "/redisTest")
@@ -22,5 +26,19 @@ public class RedisTestController {
     @GetMapping(value = "/get")
     public StuDTO get(String key){
         return (StuDTO) redisTemplate.opsForValue().get(key);
+    }
+
+    @Autowired
+    private Redisson redisson;
+
+    @GetMapping
+    public void testRedissonLock(String localKey) {
+        RLock redissonLock = redisson.getLock(localKey);
+        try {
+            redissonLock.lock(30, TimeUnit.SECONDS);
+            //业务代码
+        }finally {
+            redissonLock.unlock();
+        }
     }
 }
