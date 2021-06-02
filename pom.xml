@@ -133,6 +133,13 @@
             <version>3.15.4</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/redis.clients/jedis -->
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>3.6.0</version>
+        </dependency>
+
     </dependencies>
 
     <build>
