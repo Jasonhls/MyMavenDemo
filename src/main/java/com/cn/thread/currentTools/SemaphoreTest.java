@@ -14,6 +14,13 @@ public class SemaphoreTest {
     private static ExecutorService threadPool = Executors.newFixedThreadPool(THREAD_COUNT);
     private static Semaphore s = new Semaphore(10);
 
+    public synchronized void he() {
+
+    }
+    public static synchronized void hello() {
+
+    }
+
     public static void main(String[] args) {
             for (int i = 0; i < THREAD_COUNT; i++) {
                 threadPool.execute(new Runnable() {
