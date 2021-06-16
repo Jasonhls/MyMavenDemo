@@ -1,6 +1,9 @@
 package com.cn.controller;
 
 import com.cn.aop.Rsa;
+import com.cn.mapstruct.UserMapstruct;
+import com.cn.pojo.User;
+import com.cn.pojo.UserDTO;
 import com.cn.service.HelloService;
 import com.cn.threadAndLock.threadPool.test.TestThreadPoolManager;
 import com.cn.websocket.MyWebSocket;
@@ -59,5 +62,18 @@ public class TestController {
     public String t(String data) {
         System.out.println(data);
         return helloService.sayHello(data);
+    }
+
+    @Autowired
+    private UserMapstruct userMapstruct;
+
+    @GetMapping(value = "/mapstruct")
+    @ResponseBody
+    public UserDTO get() {
+        User user = new User();
+        user.setId(1);
+        user.setUsername("hls");
+        user.setPassword("123456");
+        return userMapstruct.userToUserDTO(user);
     }
 }
