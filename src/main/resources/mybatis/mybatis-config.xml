@@ -25,8 +25,8 @@
     <!-- autoMappingBehavior should be set in each test case -->
 
     <plugins>
-        <plugin interceptor="study.interceptor.NewSqlInterceptor"></plugin>
-        <plugin interceptor="study.interceptor.SqlInterceptor"></plugin>
+        <plugin interceptor="com.cn.mybatisStudy.interceptor.NewSqlInterceptor"></plugin>
+        <plugin interceptor="com.cn.mybatisStudy.interceptor.SqlInterceptor"></plugin>
     </plugins>
 
     <environments default="development">
@@ -53,7 +53,7 @@
     </environments>
 
     <mappers>
-        <mapper resource="study/MyStudy.xml"/>
+        <mapper resource="mybatis/mapper/MyStudyMapper.xml"/>
     </mappers>
 
 </configuration>

@@ -37,18 +37,20 @@ public class SqlInterceptor implements Interceptor {
         TypeHandlerRegistry typeHandlerRegistry = configuration.getTypeHandlerRegistry();
         Object parameterObject = boundSql.getParameterObject();
         String sql = boundSql.getSql().replaceAll("[\\s]", " ");
-        if(typeHandlerRegistry.hasTypeHandler(parameterObject.getClass())) {
-            sql = sql.replaceAll("\\?", getValueByParameterMapping(parameterObject));
-        }else {
-            MetaObject metaObject = configuration.newMetaObject(parameterObject);
-            List<ParameterMapping> parameterMappings = boundSql.getParameterMappings();
-            if(parameterMappings != null && parameterMappings.size() > 0) {
-                for (ParameterMapping pm : parameterMappings) {
-                    String property = pm.getProperty();
-                    if(metaObject.hasGetter(property)) {
-                        sql = sql.replaceAll("\\?", getValueByParameterMapping(metaObject.getValue(property)));
-                    }else if(boundSql.hasAdditionalParameter(property)){
-                        sql = sql.replaceAll("\\?", getValueByParameterMapping(boundSql.getAdditionalParameter(property)));
+        if(parameterObject != null) {
+            if(typeHandlerRegistry.hasTypeHandler(parameterObject.getClass())) {
+                sql = sql.replaceAll("\\?", getValueByParameterMapping(parameterObject));
+            }else {
+                MetaObject metaObject = configuration.newMetaObject(parameterObject);
+                List<ParameterMapping> parameterMappings = boundSql.getParameterMappings();
+                if(parameterMappings != null && parameterMappings.size() > 0) {
+                    for (ParameterMapping pm : parameterMappings) {
+                        String property = pm.getProperty();
+                        if(metaObject.hasGetter(property)) {
+                            sql = sql.replaceAll("\\?", getValueByParameterMapping(metaObject.getValue(property)));
+                        }else if(boundSql.hasAdditionalParameter(property)){
+                            sql = sql.replaceAll("\\?", getValueByParameterMapping(boundSql.getAdditionalParameter(property)));
+                        }
                     }
                 }
             }

@@ -17,7 +17,7 @@ public class NewSqlInterceptor implements Interceptor {
     @Override
     public Object intercept(Invocation invocation) throws Throwable {
         MappedStatement ms = (MappedStatement) invocation.getArgs()[0];
-        if(!"study.MyStudyMapper.getUser".equals(ms.getId())) {
+        if(!"com.cn.mybatisStudy.xml.MyStudyMapper.getUser".equals(ms.getId())) {
             return invocation.proceed();
         }
         Object parameter = invocation.getArgs()[1];
@@ -43,7 +43,7 @@ public class NewSqlInterceptor implements Interceptor {
 
     }
 
-    private MappedStatement copyFromMappedStatement(MappedStatement ms, SqlSource newSqlSource) {
+    public static MappedStatement copyFromMappedStatement(MappedStatement ms, SqlSource newSqlSource) {
         MappedStatement.Builder builder = new MappedStatement.Builder(ms.getConfiguration(), ms.getId(),
                 newSqlSource, ms.getSqlCommandType());
         builder.resource(ms.getResource());

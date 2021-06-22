@@ -15,15 +15,12 @@
  */
 package com.cn.mybatisStudy.xml;
 
+import com.cn.mybatisStudy.pojo.User;
 import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.autoconstructor.PrimitiveSubject;
 
 import java.util.List;
 
 public interface MyStudyMapper {
-  @Select("SELECT * FROM subject WHERE id = #{id}")
-  PrimitiveSubject getSubject(final int id);
-
 
   @Select("SELECT * FROM user WHERE name = #{name}")
   List<User> getUserByName(String name);
@@ -31,4 +28,8 @@ public interface MyStudyMapper {
   User getUserById(Long id);
 
   List<User> getUser();
+
+  void deleteUserById(Long id);
+
+  void testDeleteAll();
 }
