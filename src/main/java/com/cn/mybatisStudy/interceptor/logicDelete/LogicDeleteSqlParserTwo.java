@@ -1,27 +1,29 @@
 package com.cn.mybatisStudy.interceptor.logicDelete;
 
-import com.baomidou.mybatisplus.core.parser.AbstractJsqlParser;
 import com.baomidou.mybatisplus.core.parser.SqlInfo;
+import com.baomidou.mybatisplus.extension.plugins.tenant.TenantSqlParser;
 import net.sf.jsqlparser.statement.Statement;
 import net.sf.jsqlparser.statement.delete.Delete;
-import net.sf.jsqlparser.statement.insert.Insert;
-import net.sf.jsqlparser.statement.select.SelectBody;
-import net.sf.jsqlparser.statement.update.Update;
+import net.sf.jsqlparser.statement.select.Select;
 import org.springframework.util.CollectionUtils;
 
 import java.util.Set;
 
-public class LogicDeleteSqlParser extends AbstractJsqlParser {
+public class LogicDeleteSqlParserTwo extends TenantSqlParser {
 
     LogicDeleteProperties logicDeleteProperties;
 
-    public LogicDeleteSqlParser(LogicDeleteProperties logicDeleteProperties) {
+    public LogicDeleteSqlParserTwo(LogicDeleteProperties logicDeleteProperties) {
         this.logicDeleteProperties = logicDeleteProperties;
     }
 
     @Override
     public SqlInfo processParser(Statement statement) {
-        if(statement instanceof Delete) {
+        if(statement instanceof Select) {
+            //如果是查询，就自动在sql后面加上 and is_deleted = 0
+            processSelectBody(((Select) statement).getSelectBody());
+        }else if(statement instanceof Delete) {
+            //如果是删除，就改变sql，走逻辑删除
             String deleteSql = statement.toString();
             String tableName = ((Delete) statement).getTable().getName();
             return SqlInfo.newInstance().setSql(handlerDeleteSql(deleteSql, tableName));
@@ -38,25 +40,5 @@ public class LogicDeleteSqlParser extends AbstractJsqlParser {
         String finalSql = deleteSql.replaceAll("DELETE FROM ", "update ")
                 .replace(tableName, tableName + " set " + logicDeleteProperties.getColumnName() + " = " + logicDeleteProperties.getDeleteValue());
         return finalSql;
-    }
-
-    @Override
-    public void processInsert(Insert insert) {
-
-    }
-
-    @Override
-    public void processDelete(Delete delete) {
-
-    }
-
-    @Override
-    public void processUpdate(Update update) {
-
-    }
-
-    @Override
-    public void processSelectBody(SelectBody selectBody) {
-
     }
 }

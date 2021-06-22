@@ -44,6 +44,9 @@ public class MyStudyTest {
         System.out.println("测试类：执行之前的动作");
     }
 
+    /**
+     * xml方式，使用mybatis + 数据库
+     */
     @Test
     public void xmlTest()  {
         SqlSession sqlSession = null;
@@ -70,6 +73,9 @@ public class MyStudyTest {
         }
     }
 
+    /**
+     * config注解配置方式，使用mybatis + 数据库
+     */
     @Test
     public void configTest() {
         SqlSession sqlSession = null;
@@ -79,11 +85,13 @@ public class MyStudyTest {
             SqlSession session = sqlSessionFactory.openSession();
 
             MyStudyMapper mapper = session.getMapper(MyStudyMapper.class);
+            User userById = mapper.getUserById(2L);
+
 //            mapper.deleteUserById(2L);
             //没有带条件的删除语句，在执行的时候通过SafeSqlInterceptor，会报错：数据删除安全检查, 当前删除的SQL没有指定查询条件, 不允许执行该操作！
-            mapper.testDeleteAll();
+//            mapper.testDeleteAll();
             session.commit();
-
+            System.out.println(userById.toString());
         }catch (Exception e) {
             e.printStackTrace();
         }finally {

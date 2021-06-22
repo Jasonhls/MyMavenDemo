@@ -1,5 +1,6 @@
 package com.cn.mybatisStudy.interceptor.logicDelete;
 
+import com.baomidou.mybatisplus.core.parser.AbstractJsqlParser;
 import com.baomidou.mybatisplus.core.parser.SqlInfo;
 import com.cn.mybatisStudy.interceptor.NewSqlInterceptor;
 import org.apache.commons.lang3.StringUtils;
@@ -25,9 +26,9 @@ import java.lang.reflect.Method;
 
 })
 public class LogicDeleteInterceptor implements Interceptor {
-    LogicDeleteSqlParser parser;
+    AbstractJsqlParser parser;
 
-    public LogicDeleteInterceptor(LogicDeleteSqlParser parser) {
+    public LogicDeleteInterceptor(AbstractJsqlParser parser) {
         this.parser = parser;
     }
 

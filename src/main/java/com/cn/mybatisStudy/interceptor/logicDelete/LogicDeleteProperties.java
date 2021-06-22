@@ -13,7 +13,7 @@ public class LogicDeleteProperties {
     /**
      * 逻辑删除字段
      */
-    private String column = "is_deleted";
+    private String columnName = "is_deleted";
     /**
      * 删除标记值
      */

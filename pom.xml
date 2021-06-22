@@ -169,6 +169,13 @@
             <artifactId>mybatis-plus</artifactId>
             <version>3.4.3</version>
         </dependency>
+        <!--引入mybatis-plus-extension的包-->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-extension</artifactId>
+            <version>3.4.2</version>
+        </dependency>
+
     </dependencies>
 
     <build>

@@ -1,9 +1,7 @@
 package com.cn.mybatisStudy.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
-import com.cn.mybatisStudy.interceptor.logicDelete.LogicDeleteInterceptor;
-import com.cn.mybatisStudy.interceptor.logicDelete.LogicDeleteProperties;
-import com.cn.mybatisStudy.interceptor.logicDelete.LogicDeleteSqlParser;
+import com.cn.mybatisStudy.interceptor.logicDelete.*;
 import com.cn.mybatisStudy.interceptor.security.SafeSqlInterceptor;
 import com.cn.mybatisStudy.interceptor.security.SafeSqlParser;
 import com.cn.mybatisStudy.interceptor.security.SafeSqlProperties;
@@ -34,9 +32,16 @@ public class MybatisConfig {
         return dataSource;
     }
 
-    @Bean
+    /*@Bean
     public LogicDeleteInterceptor logicDeleteInterceptor(LogicDeleteProperties logicDeleteProperties) {
         LogicDeleteSqlParser parser = new LogicDeleteSqlParser(logicDeleteProperties);
+        return new LogicDeleteInterceptor(parser);
+    }*/
+
+    @Bean
+    public LogicDeleteInterceptor logicDeleteInterceptor(LogicDeleteProperties logicDeleteProperties) {
+        LogicDeleteSqlParserTwo parser = new LogicDeleteSqlParserTwo(logicDeleteProperties);
+        parser.setTenantHandler(new LogicDeleteSelectHandler(logicDeleteProperties));
         return new LogicDeleteInterceptor(parser);
     }
 
@@ -60,7 +65,7 @@ public class MybatisConfig {
         configuration.setMapUnderscoreToCamelCase(true);
         sqlSessionFactoryBean.setConfiguration(configuration);
 
-        //加入自定应的mybatis拦截器
+        //加入自定义的mybatis拦截器
         sqlSessionFactoryBean.setPlugins(new Interceptor[]{logicDeleteInterceptor, safeSqlInterceptor});
         return sqlSessionFactoryBean.getObject();
     }
