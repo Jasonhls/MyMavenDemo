@@ -13,7 +13,7 @@
  *    See the License for the specific language governing permissions and
  *    limitations under the License.
  */
-package com.cn.mybatisStudy.xml;
+package com.cn.mybatisStudy.mapper;
 
 import com.cn.mybatisStudy.pojo.User;
 import org.apache.ibatis.annotations.Select;

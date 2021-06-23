@@ -16,7 +16,7 @@
 package com.cn.mybatisStudy;
 
 import com.cn.mybatisStudy.config.MybatisConfig;
-import com.cn.mybatisStudy.xml.MyStudyMapper;
+import com.cn.mybatisStudy.mapper.MyStudyMapper;
 import com.cn.mybatisStudy.pojo.User;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
