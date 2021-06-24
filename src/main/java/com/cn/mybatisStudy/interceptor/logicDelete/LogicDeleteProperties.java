@@ -9,21 +9,21 @@ import java.util.Set;
 @ConfigurationProperties(prefix = LogicDeleteProperties.PREFIX)
 public class LogicDeleteProperties {
     public static final String PREFIX = "mybatis-plus.global-config.db-config.logic-delete";
-    private boolean enabled = false;
+    public boolean enabled = false;
     /**
      * 逻辑删除字段
      */
-    private String columnName = "is_deleted";
+    public String columnName = "is_deleted";
     /**
      * 删除标记值
      */
-    private String deleteValue = "1";
+    public String deleteValue = "1";
     /**
      * 未删除标记值
      */
-    private String noDeleteValue = "0";
+    public static String noDeleteValue = "0";
     /**
      * 忽略的表
      */
-    private Set<String> ignoreTableNames;
+    public Set<String> ignoreTableNames;
 }
