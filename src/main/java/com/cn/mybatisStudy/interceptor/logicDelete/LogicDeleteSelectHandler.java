@@ -16,7 +16,7 @@ public class LogicDeleteSelectHandler implements TenantHandler {
     @Override
     public Expression getTenantId(boolean select) {
         //返回 0
-        return new LongValue(logicDeleteProperties.getNoDeleteValue());
+        return new LongValue(LogicDeleteProperties.noDeleteValue);
     }
 
     @Override
