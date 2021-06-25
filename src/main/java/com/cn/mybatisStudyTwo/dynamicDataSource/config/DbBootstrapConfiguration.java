@@ -4,7 +4,7 @@ import com.cn.mybatisStudyTwo.dynamicDataSource.druidStat.DruidStatViewServletCo
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
-@Configuration
+//@Configuration
 @Import(value = {SystemConfiguration.class, DynamicDataSourceConfiguration.class, DruidStatViewServletConfiguration.class})
 public class DbBootstrapConfiguration {
 }

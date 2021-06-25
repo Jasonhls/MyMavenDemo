@@ -5,26 +5,21 @@ spring:
     active: local
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/webdemoone?serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://localhost:3306/test?serverTimezone=Asia/Shanghai
     username: root
-    password: 123
+    password: 123456
     type: com.alibaba.druid.pool.DruidDataSource
   thymeleaf:
     prefix: /templates/
-  batch:
-    schema: classpath:schema.sql
-    job:
-      enabled: true
-    initialize-schema: always
   redis:
     host: 127.0.0.1
     port: 6379
     timeout: 5000
-  rabbitmq:
-    host: 127.0.0.1
-    port: 5672
-    username: demo
-    password: demo
+#  rabbitmq:
+#    host: 127.0.0.1
+#    port: 5672
+#    username: demo
+#    password: demo
   main:
     allow-bean-definition-overriding: true
 mybatis:

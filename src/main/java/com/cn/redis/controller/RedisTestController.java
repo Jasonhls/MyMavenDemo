@@ -3,6 +3,7 @@ package com.cn.redis.controller;
 import com.cn.redis.pojo.StuDTO;
 import org.redisson.Redisson;
 import org.redisson.api.RLock;
+import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,11 +30,11 @@ public class RedisTestController {
     }
 
     @Autowired
-    private Redisson redisson;
+    private RedissonClient redissonClient;
 
     @GetMapping
     public void testRedissonLock(String localKey) {
-        RLock redissonLock = redisson.getLock(localKey);
+        RLock redissonLock = redissonClient.getLock(localKey);
         try {
             redissonLock.lock(30, TimeUnit.SECONDS);
             //业务代码

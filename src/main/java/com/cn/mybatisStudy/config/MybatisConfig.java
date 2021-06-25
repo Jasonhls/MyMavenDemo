@@ -32,12 +32,6 @@ public class MybatisConfig {
         return dataSource;
     }
 
-    /*@Bean
-    public LogicDeleteInterceptor logicDeleteInterceptor(LogicDeleteProperties logicDeleteProperties) {
-        LogicDeleteSqlParser parser = new LogicDeleteSqlParser(logicDeleteProperties);
-        return new LogicDeleteInterceptor(parser);
-    }*/
-
     @Bean
     public LogicDeleteInterceptor logicDeleteInterceptor(LogicDeleteProperties logicDeleteProperties) {
         LogicDeleteSqlParserTwo parser = new LogicDeleteSqlParserTwo(logicDeleteProperties);

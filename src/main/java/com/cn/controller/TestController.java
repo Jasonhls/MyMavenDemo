@@ -69,7 +69,7 @@ public class TestController {
 
     @GetMapping(value = "/mapstruct")
     @ResponseBody
-    public UserDTO get() {
+    public UserDTO get(@RequestBody String body) {
         User user = new User();
         user.setId(1);
         user.setUsername("hls");
