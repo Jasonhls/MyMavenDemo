@@ -10,10 +10,11 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 
 /**
- * 只是对入参中标注有@RequestBody的方法有效
+ * 只是对入参标注有@RequestBody的方法有效
  */
 @ControllerAdvice
 public class RequestWrapHandler implements RequestBodyAdvice {
+    /** 如果supports方法返回false，则不会执行当前Advice，也就是说不会执行下面的beforeBodyRead、afterBodyRead、handleEmptyBody三个方法*/
     @Override
     public boolean supports(MethodParameter methodParameter, Type type, Class<? extends HttpMessageConverter<?>> aClass) {
         return true;
