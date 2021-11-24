@@ -11,6 +11,7 @@
     <modules>
         <module>maven_demo_one</module>
         <module>maven_demo_two</module>
+        <module>maven_demo_sharding_jdbc</module>
     </modules>
 
     <parent>
@@ -19,5 +20,19 @@
         <version>2.3.4.RELEASE</version>
     </parent>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>5.7.14</version>
+            </dependency>
+            <dependency>
+                <groupId>org.redisson</groupId>
+                <artifactId>redisson</artifactId>
+                <version>3.16.4</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
 </project>
