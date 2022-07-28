@@ -11,6 +11,11 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
   thymeleaf:
     prefix: /templates/
+  batch:
+    schema: classpath:schema.sql
+    job:
+      enabled: true
+    initialize-schema: always
   redis:
     host: 127.0.0.1
     port: 6379

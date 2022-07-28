@@ -8,7 +8,7 @@ public class DeadLockDemoTest {
         String synchronizedOne = "one";
         String synchronizedTwo = "two";
 
-        new Thread(){
+        new Thread("thread1___1"){
             @Override
             public void run() {
                 while(true){
@@ -22,7 +22,7 @@ public class DeadLockDemoTest {
             }
         }.start();
 
-        new Thread(){
+        new Thread("thread2___2"){
             @Override
             public void run() {
                 while(true){
