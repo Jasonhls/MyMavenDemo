@@ -20,7 +20,7 @@
     </properties>
 
     <dependencies>
-        <dependency>
+        <!--<dependency>
             <groupId>com.cn.hls</groupId>
             <artifactId>hls-boot-starter-db</artifactId>
             <version>${hls-boot-starter.version}</version>
@@ -29,7 +29,7 @@
             <groupId>com.cn.hls</groupId>
             <artifactId>hls-boot-starter-web</artifactId>
             <version>${hls-boot-starter.version}</version>
-        </dependency>
+        </dependency>-->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
