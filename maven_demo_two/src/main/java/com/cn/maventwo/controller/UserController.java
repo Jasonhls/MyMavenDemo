@@ -1,6 +1,5 @@
 package com.cn.maventwo.controller;
 
-import com.cn.hls.web.annotation.Crypt;
 import com.cn.maventwo.pojo.User;
 import com.cn.maventwo.service.UserService;
 import lombok.extern.slf4j.Slf4j;
@@ -45,7 +44,6 @@ public class UserController {
     }
 
     @GetMapping(value = "/encrypt")
-    @Crypt
     public String crypt(@RequestBody User user) {
         return "hello, " + user.getUsername() + "-encrypt";
     }
