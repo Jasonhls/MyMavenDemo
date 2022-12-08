@@ -12,6 +12,7 @@
         <module>maven_demo_one</module>
         <module>maven_demo_two</module>
         <module>nettyReactorStudy</module>
+        <module>traceDemo</module>
     </modules>
 
     <parent>
