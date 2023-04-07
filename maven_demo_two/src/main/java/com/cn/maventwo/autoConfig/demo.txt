@@ -1,0 +1,19 @@
+SpringBoot配置自动提示功能：
+参考文档：https://www.cnblogs.com/lw5946/p/11769298.html
+
+<!-- 引入相关依赖 -->
+<dependency>
+  <groupId>org.springframework.boot</groupId>
+  <artifactId>spring-boot-configuration-processor</artifactId>
+  <optional>true</optional>
+</dependency>
+
+添加配置：
+@Configuration
+@ConfigurationProperties(prefix = "remind")  // 配置前缀
+@Data  //注意必须提供get,set方法
+public class AutoRemindConfig {
+    private boolean enabled;
+    private String name;
+    private Integer age;
+}
