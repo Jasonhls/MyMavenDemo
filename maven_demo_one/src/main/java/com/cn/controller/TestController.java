@@ -1,6 +1,5 @@
 package com.cn.controller;
 
-import com.cn.aop.Rsa;
 import com.cn.mapstruct.UserMapstruct;
 import com.cn.pojo.User;
 import com.cn.pojo.UserDTO;
@@ -58,7 +57,6 @@ public class TestController {
     private HelloService helloService;
 
     @PostMapping(value = "/test")
-    @Rsa
     public String t(String data) {
         System.out.println(data);
         return helloService.sayHello(data);

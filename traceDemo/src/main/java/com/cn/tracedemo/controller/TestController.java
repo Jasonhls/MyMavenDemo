@@ -30,6 +30,14 @@ public class TestController {
         return "Hello," + name;
     }
 
+    @PostMapping("doTest2")
+    public String doTest2(@RequestParam("name")String name) throws InterruptedException {
+        log.info("入参 name={}", name);
+        testTrace();
+        log.info("调用结束 name={}", name);
+        return "Hello," + name;
+    }
+
     private void testTrace() {
         log.info("这是一行info日志");
         log.info("这是一行error日志");

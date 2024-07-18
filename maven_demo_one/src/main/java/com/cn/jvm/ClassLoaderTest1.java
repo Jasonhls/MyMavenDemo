@@ -1,10 +1,10 @@
 package com.cn.jvm;
 
-import com.sun.net.ssl.internal.ssl.Provider;
-import sun.misc.Launcher;
+//import sun.misc.Launcher;
 //import sun.security.ec.CurveDB;
 
 import java.net.URL;
+import java.security.Provider;
 
 /**
  * @description:
@@ -13,7 +13,9 @@ import java.net.URL;
  **/
 public class ClassLoaderTest1 {
     public static void main(String[] args) {
-        URL[] urLs = Launcher.getBootstrapClassPath().getURLs();
+        //jdk11没有Laucher这个类了
+//        URL[] urLs = Launcher.getBootstrapClassPath().getURLs();
+        URL[] urLs = new URL[10];
         /**
          * file:/D:/jdk/java/jdk1.8.0_192/jre/lib/resources.jar
          * file:/D:/jdk/java/jdk1.8.0_192/jre/lib/rt.jar
@@ -29,7 +31,7 @@ public class ClassLoaderTest1 {
         }
 
         //com.sun.net.ssl.internal.ssl.Provider是jsse.jar包里面的一个类，该类的类加载器为引导类加载器，即BootstrapClassLoader
-        ClassLoader classLoader = Provider.class.getClassLoader();
+        ClassLoader classLoader = Provider.class.getClassLoader();;
         //打印为null，即表示为引导类加载器
         System.out.println(classLoader);
 

@@ -1,6 +1,5 @@
 package com.cn.controller;
 
-import com.cn.aop.service.AopTestService;
 import com.cn.pojo.User;
 import com.cn.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,13 +35,6 @@ public class TestHahaController {
     public String testH(){
         String phone = "12345678912";
         return phone.substring(0,phone.length() - 4) + "****";
-    }
-
-    @Autowired
-    private AopTestService aopTestService;
-    @GetMapping(value = "/aop")
-    public String sayHello(){
-        return aopTestService.sayHello("hls");
     }
 
     @GetMapping(value = "/getSpringFactories")
